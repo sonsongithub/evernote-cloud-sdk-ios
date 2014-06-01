@@ -11,6 +11,9 @@ xcodebuild -target "evernote-sdk-ios" -sdk iphonesimulator -arch i386 -arch x86_
 mkdir -p $TARGET_LIB_PATH
 xcrun lipo -create build/Release-iphonesimulator/libevernote-sdk-ios.a build/Release-iphoneos/libevernote-sdk-ios.a -output build/lib/libevernote-sdk-ios.a
 
+# Copy bundle file
+cp -r ./ENSDKResources.bundle $TARGET_LIB_PATH/
+
 # Copy header files
 mkdir -p $SOURCE_INCLUDE_PATH
 mkdir -p $TARGET_INCLUDE_PATH
